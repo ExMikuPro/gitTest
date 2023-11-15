@@ -1,7 +1,6 @@
 builds:
   # 你能用 多个 构建 定义，yaml格式
-  -
-    #  main.go 文件或者主包的路径 .
+  - #  main.go 文件或者主包的路径 .
     # 默认 `.`.
     main: .
 
@@ -31,12 +30,20 @@ builds:
       - arm
       - arm64
 
+
+
+    env:
+      - GOARCH=amd64
+      - GOOS=linux
+      - CGO_ENABLED=0
+
     # GOARM 要构建的 ， 若GOARCH 是 arm时.
     # 更多内容，请参考: https://golang.org/doc/install/source#environment
     # 默认是 只有 6.
     goarm:
       - 6
       - 7
+
 
     #  GOOS + GOARCH + GOARM 组合忽略列表.
     # 默认是 空.

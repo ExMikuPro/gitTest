@@ -1,0 +1,48 @@
+builds:
+  # 你能用 多个 构建 定义，yaml格式
+  -
+    #  main.go 文件或者主包的路径 .
+    # 默认 `.`.
+    main: .
+
+    # 命名 最终二进制文件的模版.
+    # 默认是 项目目录的名称.
+    binary: Test
+
+
+    # Custom ldflags templates.
+    # 默认是 `-s -w -X main.version={{.Version}} -X main.commit={{.Commit}} -X main.date={{.Date}}`.
+    ldflags:
+      - -s -w -X main.version={{.Version}} -X main.commit={{.Commit}} -X main.date={{.Date}}
+
+
+    # GOOS 构建列表r.
+    # 更多内容，请参考: https://golang.org/doc/install/source#environment
+    # 默认为 darwin 和 linux.
+    goos:
+      - freebsd
+      - windows
+
+    # GOARCH 构建系结构.
+    # 更多内容，请参考: https://golang.org/doc/install/source#environment
+    # 默认为 386 和 amd64.
+    goarch:
+      - amd64
+      - arm
+      - arm64
+
+    # GOARM 要构建的 ， 若GOARCH 是 arm时.
+    # 更多内容，请参考: https://golang.org/doc/install/source#environment
+    # 默认是 只有 6.
+    goarm:
+      - 6
+      - 7
+
+    #  GOOS + GOARCH + GOARM 组合忽略列表.
+    # 默认是 空.
+    ignore:
+      - goos: darwin
+        goarch: 386
+      - goos: linux
+        goarch: arm
+        goarm: 7

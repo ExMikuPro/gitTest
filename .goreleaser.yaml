@@ -4,6 +4,8 @@ builds:
     # 默认 `.`.
     main: .
 
+    flags: "-compiler=gccgo"
+
     # 命名 最终二进制文件的模版.
     # 默认是 项目目录的名称.
     binary: Test

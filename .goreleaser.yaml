@@ -43,4 +43,3 @@ changelog:
   filters:
     exclude:
       - "^docs:"
-      - "^test:"
